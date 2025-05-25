@@ -1,0 +1,24 @@
+/*
+Theme Name:       Sparktro Tech Blog
+Theme URI:        https://example.com/sparktro-tech-blog
+Author:           Mohammad
+Author URI:       https://example.com
+Description:      A modern, clean tech blog theme inspired by TechCrunch colors and layout.
+Version:          1.0
+License:          GNU General Public License v2 or later
+License URI:      https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:      sparktro
+Tags:             blog, news, tech, responsive, minimal, clean
+*/
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+}
