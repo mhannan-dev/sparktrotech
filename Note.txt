@@ -1,2 +1,0 @@
-sudo find /opt/lampp/htdocs/wp -type d -exec chmod 755 {} \;
-sudo find /opt/lampp/htdocs/wp -type f -exec chmod 644 {} \;
