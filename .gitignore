@@ -1,1 +1,6 @@
 wp-config.php
+
+/wp-content/uploads/
+# Ignore all files in the uploads directory
+# except for the .htaccess file
+!/wp-content/uploads/.htaccess
