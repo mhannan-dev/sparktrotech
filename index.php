@@ -1,7 +1,7 @@
 <?php
 /*
-		This is the template for the header
-		@package sparktrotech
+        This is the template for the header
+        @package sparktrotech
 */
 ?>
 <!DOCTYPE html>
@@ -41,6 +41,13 @@
   <!-- Styles and Scripts -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  
+  <style>
+    /* Toggle switch styles */
+    .toggle-checkbox:checked + .toggle-label .dot {
+      transform: translateX(1.25rem);
+    }
+  </style>
 </head>
 
 <body class="bg-gray-100 text-gray-800 font-sans" <?php body_class(); ?>>
@@ -94,31 +101,29 @@
     </div>
 
     <!-- Mobile Menu -->
-<div x-show="mobileOpen" x-transition class="md:hidden px-4 pb-4 space-y-2 text-gray-300" @click.away="mobileOpen = false">
-  <a href="#" class="block hover:text-white">Home</a>
+    <div x-show="mobileOpen" x-transition class="md:hidden px-4 pb-4 space-y-2 text-gray-300" @click.away="mobileOpen = false">
+      <a href="#" class="block hover:text-white">Home</a>
 
-  <!-- Mobile Dropdown for Tutorials -->
-  <div x-data="{ openTutorials: false }">
-    <button @click="openTutorials = !openTutorials" class="w-full flex justify-between items-center hover:text-white">
-      Tutorials
-      <svg :class="{ 'rotate-180': openTutorials }" class="w-4 h-4 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-      </svg>
-    </button>
-    <div x-show="openTutorials" x-transition class="pl-4 mt-2 space-y-1">
-      <a href="#" class="block text-sm hover:text-white">Web Dev</a>
-      <a href="#" class="block text-sm hover:text-white">AI/ML</a>
-      <a href="#" class="block text-sm hover:text-white">Mobile Apps</a>
-      <a href="#" class="block text-sm hover:text-white">Others</a>
+      <!-- Mobile Dropdown for Tutorials -->
+      <div x-data="{ openTutorials: false }">
+        <button @click="openTutorials = !openTutorials" class="w-full flex justify-between items-center hover:text-white">
+          Tutorials
+          <svg :class="{ 'rotate-180': openTutorials }" class="w-4 h-4 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div x-show="openTutorials" x-transition class="pl-4 mt-2 space-y-1">
+          <a href="#" class="block text-sm hover:text-white">Web Dev</a>
+          <a href="#" class="block text-sm hover:text-white">AI/ML</a>
+          <a href="#" class="block text-sm hover:text-white">Mobile Apps</a>
+          <a href="#" class="block text-sm hover:text-white">Others</a>
+        </div>
+      </div>
+
+      <a href="#" class="block hover:text-white">Dev Tools</a>
+      <a href="#" class="block hover:text-white">Reviews</a>
+      <a href="#" class="block hover:text-white">About</a>
     </div>
-  </div>
-
-  <a href="#" class="block hover:text-white">Dev Tools</a>
-  <a href="#" class="block hover:text-white">Reviews</a>
-  <a href="#" class="block hover:text-white">About</a>
-</div>
-
-
   </header>
 
   <!-- Blog Grid Section -->
@@ -139,92 +144,66 @@
     <!-- Blog Articles -->
     <section id="blogList" class="space-y-6">
 
-      <article class="bg-white rounded-xl shadow hover:shadow-md transition flex flex-col md:flex-row overflow-hidden">
+      <article class="bg-white rounded-xl shadow hover:shadow-md transition flex flex-col md:flex-row overflow-hidden" data-headline="false">
         <img class="w-full md:w-1/3 h-48 md:h-auto object-cover" src="https://source.unsplash.com/400x300/?productivity,apps" alt="Productivity tools image" />
         <div class="p-6 flex flex-col justify-center">
           <span class="text-sm text-[#0f9d58] font-semibold uppercase">Productivity</span>
           <h2 class="text-xl font-semibold mt-1 mb-2">Top 5 Developer Productivity Tools in 2025</h2>
-          <time class="text-gray-500 text-sm">Published: January 5, 2025</time>
-          <p class="mt-2 text-gray-600 blog-description">Discover the latest tools to boost your efficiency as a developer.</p>
+          <p class="text-gray-700">Boost your coding workflow with these essential tools that every developer should know about.</p>
           <a href="blog-detail.html" class="mt-4 text-[#0f9d58] hover:underline font-medium inline-block">Read More →</a>
         </div>
       </article>
 
-      <article class="bg-white rounded-xl shadow hover:shadow-md transition flex flex-col md:flex-row overflow-hidden">
-        <img class="w-full md:w-1/3 h-48 md:h-auto object-cover" src="https://source.unsplash.com/400x300/?programming,code" alt="VS Code extensions image" />
-        <div class="p-6 flex flex-col justify-center">
-          <span class="text-sm text-[#0f9d58] font-semibold uppercase">Tools</span>
-          <h2 class="text-xl font-semibold mt-1 mb-2">VS Code Extensions Every Developer Should Use</h2>
-          <time class="text-gray-500 text-sm">Published: January 10, 2025</time>
-          <p class="mt-2 text-gray-600 blog-description">A curated list of must-have VS Code extensions for developers.</p>
-          <a href="blog-detail.html" class="mt-4 text-[#0f9d58] hover:underline font-medium inline-block">Read More →</a>
-        </div>
-      </article>
-
-      <article class="bg-white rounded-xl shadow hover:shadow-md transition flex flex-col md:flex-row overflow-hidden">
-        <img class="w-full md:w-1/3 h-48 md:h-auto object-cover" src="https://source.unsplash.com/400x300/?ai,technology" alt="AI tools image" />
+      <article class="bg-white rounded-xl shadow hover:shadow-md transition flex flex-col md:flex-row overflow-hidden" data-headline="true">
+        <img class="w-full md:w-1/3 h-48 md:h-auto object-cover" src="https://source.unsplash.com/400x300/?ai,technology" alt="AI technology" />
         <div class="p-6 flex flex-col justify-center">
           <span class="text-sm text-[#0f9d58] font-semibold uppercase">AI</span>
-          <h2 class="text-xl font-semibold mt-1 mb-2">AI Tools Every Developer Should Know in 2025</h2>
-          <time class="text-gray-500 text-sm">Published: January 15, 2025</time>
-          <p class="mt-2 text-gray-600 blog-description">Explore how AI is transforming the daily workflow of coders.</p>
+          <h2 class="text-xl font-semibold mt-1 mb-2">AI Breakthroughs Shaping the Future of Coding</h2>
+          <p class="text-gray-700">Discover how AI is revolutionizing software development with cutting-edge innovations and tools.</p>
+          <a href="blog-detail.html" class="mt-4 text-[#0f9d58] hover:underline font-medium inline-block">Read More →</a>
+        </div>
+      </article>
+
+      <article class="bg-white rounded-xl shadow hover:shadow-md transition flex flex-col md:flex-row overflow-hidden" data-headline="false">
+        <img class="w-full md:w-1/3 h-48 md:h-auto object-cover" src="https://source.unsplash.com/400x300/?coding,workflow" alt="Coding workflow" />
+        <div class="p-6 flex flex-col justify-center">
+          <span class="text-sm text-[#0f9d58] font-semibold uppercase">Tutorials</span>
+          <h2 class="text-xl font-semibold mt-1 mb-2">Mastering React Hooks for State Management</h2>
+          <p class="text-gray-700">Learn how to use React Hooks effectively to simplify your components and enhance performance.</p>
+          <a href="blog-detail.html" class="mt-4 text-[#0f9d58] hover:underline font-medium inline-block">Read More →</a>
+        </div>
+      </article>
+
+      <article class="bg-white rounded-xl shadow hover:shadow-md transition flex flex-col md:flex-row overflow-hidden" data-headline="true">
+        <img class="w-full md:w-1/3 h-48 md:h-auto object-cover" src="https://source.unsplash.com/400x300/?finance,news" alt="Finance news" />
+        <div class="p-6 flex flex-col justify-center">
+          <span class="text-sm text-[#0f9d58] font-semibold uppercase">Finance</span>
+          <h2 class="text-xl font-semibold mt-1 mb-2">Financial Scandal Rocks Major Bank</h2>
+          <p class="text-gray-700">Breaking news on the latest financial scandal impacting the global banking industry.</p>
           <a href="blog-detail.html" class="mt-4 text-[#0f9d58] hover:underline font-medium inline-block">Read More →</a>
         </div>
       </article>
 
     </section>
-
-    <!-- Pagination -->
-    <div class="flex justify-center mt-10">
-      <nav class="inline-flex space-x-2" aria-label="Pagination">
-        <a href="#" class="px-4 py-2 text-sm text-white bg-[#0f9d58] rounded hover:bg-green-700">Previous</a>
-        <a href="#" class="px-4 py-2 text-sm text-[#0f9d58] bg-white border border-gray-300 rounded hover:bg-gray-100">1</a>
-        <a href="#" class="px-4 py-2 text-sm text-[#0f9d58] bg-white border border-gray-300 rounded hover:bg-gray-100">2</a>
-        <a href="#" class="px-4 py-2 text-sm text-[#0f9d58] bg-white border border-gray-300 rounded hover:bg-gray-100">3</a>
-        <span class="px-4 py-2 text-sm text-gray-500">...</span>
-        <a href="#" class="px-4 py-2 text-sm text-[#0f9d58] bg-white border border-gray-300 rounded hover:bg-gray-100">10</a>
-        <a href="#" class="px-4 py-2 text-sm text-white bg-[#0f9d58] rounded hover:bg-green-700">Next</a>
-      </nav>
-    </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-white border-t py-6 text-center text-sm text-gray-500">
-    <div class="flex flex-col md:flex-row justify-center items-center gap-4 mb-2">
-      <a href="#" class="hover:text-[#0f9d58] transition">FAQ</a>
-      <a href="#" class="hover:text-[#0f9d58] transition">Privacy Policy</a>
-      <a href="#" class="hover:text-[#0f9d58] transition">Terms & Conditions</a>
-    </div>
-    <div>© ২০২৫ Sparktro. Inspired by TechCrunch. Built with 💻 and ☕.</div>
-  </footer>
-
-  <!-- Toggle Script -->
   <script>
-    const toggle = document.getElementById('headlineToggle');
-    const descriptions = document.querySelectorAll('.blog-description');
-    const dot = document.querySelector('.dot');
-    const toggleLabel = document.querySelector('.toggle-label');
+    // Toggle headline only filter
+    document.getElementById('headlineToggle').addEventListener('change', function () {
+      const showHeadlinesOnly = this.checked;
+      const articles = document.querySelectorAll('#blogList article');
 
-    toggleLabel.addEventListener('click', () => {
-      toggle.checked = !toggle.checked;
-      dot.style.transform = toggle.checked ? 'translateX(20px)' : 'translateX(0)';
-      descriptions.forEach(desc => {
-        desc.style.display = toggle.checked ? 'none' : 'block';
+      articles.forEach(article => {
+        const isHeadline = article.getAttribute('data-headline') === 'true';
+        if (showHeadlinesOnly) {
+          article.style.display = isHeadline ? 'flex' : 'none';
+        } else {
+          article.style.display = 'flex';
+        }
       });
     });
   </script>
-  <?php
 
-  /*
-		This is the template for the footer
-		
-		@package sparktrotech
-    @since 1.0.0
-	*/
-
-  ?>
-
-  <?php wp_footer(); ?>
 </body>
 
 </html>
